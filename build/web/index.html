@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automundo SAC | Accesorios automotrices</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+        <div class="contenedor barra-superior">
+
+            <a href="index.html" class="logo">
+                AUTOMUNDO <span>SAC</span>
+            </a>
+
+            <nav class="navegacion">
+                <a href="#inicio">Inicio</a>
+                <a href="#categorias">Categorías</a>
+                <a href="productos">Productos</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+            <div class="acciones">
+                <a href="#contacto" class="enlace-cuenta">Mi cuenta</a>
+
+                <a href="carrito" class="boton-carrito">
+                    Carrito (<span id="cantidad-carrito">0</span>)
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main id="inicio">
+
+        <!-- BUSCADOR -->
+        <section class="busqueda contenedor">
+            <div class="campo-busqueda">
+                <span class="icono-busqueda">&#9906;</span>
+
+                <input type="search"
+                       id="buscador"
+                       placeholder="Buscar accesorios automotrices..."
+                       oninput="buscarProductos()">
+
+                <button onclick="buscarProductos()">Buscar</button>
+            </div>
+        </section>
+
+        <!-- BANNER PRINCIPAL -->
+        
+<section class="banner contenedor" id="inicio">
+
+    <div class="imagen-banner">
+        <img src="img/banner-auto.jpg"
+             alt="Automóvil en carretera">
+    </div>
+
+    <div class="texto-banner">
+        <span class="etiqueta">EQUIPA TU VEHÍCULO</span>
+
+        <h1>Todo para tu auto.<br>
+            En un solo lugar.</h1>
+
+        <p>
+            Encuentra accesorios que combinan calidad,
+            comodidad y estilo para tu vehículo.
+        </p>
+
+    <a href="productos" class="boton-principal">
+        Ver productos
+    </a>
+    </div>
+
+</section>
+
+
+        <!-- CATEGORÍAS -->
+        <section class="contenedor seccion" id="categorias">
+
+            <div class="titulo-seccion">
+                <div>
+                    <span class="subtitulo">EXPLORA NUESTRA TIENDA</span>
+                    <h2>Categorías destacadas</h2>
+                </div>
+            </div>
+
+            <div class="categorias-grid">
+
+                <a href="#productos" class="categoria"
+                   onclick="filtrarCategoria('Llantas')">
+                    <span class="icono-categoria">&#9678;</span>
+                    <h3>Llantas</h3>
+                </a>
+
+                <a href="#productos" class="categoria"
+                   onclick="filtrarCategoria('Repuestos')">
+                    <span class="icono-categoria">&#9881;</span>
+                    <h3>Repuestos</h3>
+                </a>
+
+                <a href="#productos" class="categoria"
+                   onclick="filtrarCategoria('Mantenimiento')">
+                    <span class="icono-categoria">&#9635;</span>
+                    <h3>Mantenimiento</h3>
+                </a>
+
+                <a href="#productos" class="categoria"
+                   onclick="filtrarCategoria('Pisos para autos')">
+                    <span class="icono-categoria">&#9638;</span>
+                    <h3>Pisos para autos</h3>
+                </a>
+
+                <a href="#productos" class="categoria"
+                   onclick="filtrarCategoria('Fundas de asientos')">
+                    <span class="icono-categoria">&#9633;</span>
+                    <h3>Fundas de asientos</h3>
+                </a>
+
+                <a href="#productos" class="categoria"
+                   onclick="filtrarCategoria('Audio')">
+                    <span class="icono-categoria">&#9835;</span>
+                    <h3>Audio</h3>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- PRODUCTOS -->
+        <section class="contenedor seccion" id="productos">
+ 
+            <div class="titulo-seccion titulo-productos">
+                <div>
+                    <span class="subtitulo">SELECCIÓN AUTOMUNDO</span>
+                    <h2>Ofertas y novedades</h2>
+                </div>
+
+
+            <a href="productos" class="boton-secundario">
+                Ver todos
+            </a>
+
+            </div>
+
+            <div class="contenido-tienda">
+
+                <!-- FILTROS -->
+                <aside class="filtros">
+
+                    <h3>Filtrar productos</h3>
+
+                    <div class="grupo-filtro">
+                        <h4>Categorías</h4>
+
+                        <label>
+                            <input type="checkbox" value="Llantas"
+                                   onchange="filtrarChecks()">
+                            Llantas
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Repuestos"
+                                   onchange="filtrarChecks()">
+                            Repuestos
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Mantenimiento"
+                                   onchange="filtrarChecks()">
+                            Mantenimiento
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Pisos para autos"
+                                   onchange="filtrarChecks()">
+                            Pisos para autos
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Fundas de asientos"
+                                   onchange="filtrarChecks()">
+                            Fundas de asientos
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Audio"
+                                   onchange="filtrarChecks()">
+                            Audio
+                        </label>
+                    </div>
+
+                    <div class="grupo-filtro">
+                        <h4>Precio máximo</h4>
+
+                        <input type="range"
+                               id="precio-maximo"
+                               min="0"
+                               max="1000"
+                               value="1000"
+                               oninput="actualizarPrecio()">
+
+                        <p>
+                            Hasta S/ <span id="valor-precio">1000</span>
+                        </p>
+                    </div>
+
+                    <button class="boton-secundario boton-ancho"
+                            onclick="limpiarFiltros()">
+                        Limpiar filtros
+                    </button>
+
+                </aside>
+
+                <!-- CATÁLOGO -->
+                <div class="productos-grid" id="lista-productos">
+
+                    <article class="producto"
+                             data-categoria="Pisos para autos"
+                             data-precio="89.90">
+
+                        <div class="producto-imagen">
+                            <span class="etiqueta-oferta">Oferta</span>
+                            <img src="img/alfombras.jpg"
+                                 alt="Alfombras de goma para auto">
+                        </div>
+
+                        <div class="producto-info">
+                            <span class="producto-categoria">Pisos para autos</span>
+                            <h3>Alfombras de goma universales</h3>
+                            <p class="descripcion">Juego de alfombras para auto</p>
+                            <p class="precio">S/ 89.90</p>
+                            <p class="disponibilidad">● Disponible</p>
+
+                            
+                        <form action="carrito" method="post">
+                            <input type="hidden" name="accion" value="agregar">
+                            <input type="hidden" name="id" value="1">
+                            <input type="hidden" name="cantidad" value="1">
+
+                            <button type="submit" class="boton-producto">
+                                Añadir al carrito
+                            </button>
+                        </form>
+                        </div>
+                    </article>
+
+                    <article class="producto"
+                             data-categoria="Accesorios interiores"
+                             data-precio="39.90">
+
+                        <div class="producto-imagen">
+                            <img src="img/soporte-celular.jpg"
+                                 alt="Soporte para celular">
+                        </div> 
+
+                        <div class="producto-info">
+                            <span class="producto-categoria">Accesorios interiores</span>
+                            <h3>Soporte para celular</h3>
+                            <p class="descripcion">Soporte ajustable para vehículo</p>
+                            <p class="precio">S/ 39.90</p>
+                            <p class="disponibilidad">● Disponible</p>
+
+                        <form action="carrito" method="post">
+                            <input type="hidden" name="accion" value="agregar">
+                            <input type="hidden" name="id" value="2">
+                            <input type="hidden" name="cantidad" value="1">
+
+                            <button type="submit" class="boton-producto">
+                                Añadir al carrito
+                            </button>
+                        </form>
+                        </div>
+                    </article>
+
+                    <article class="producto"
+                             data-categoria="Audio"
+                             data-precio="129.90">
+
+                        <div class="producto-imagen">
+                            <span class="etiqueta-oferta">Oferta</span>
+                            <img src="img/parlantes.jpg"
+                                 alt="Parlantes para automóvil">
+                        </div>
+
+                        <div class="producto-info">
+                            <span class="producto-categoria">Audio</span>
+                            <h3>Parlantes para automóvil</h3>
+                            <p class="descripcion">Par de parlantes coaxiales</p>
+                            <p class="precio">S/ 129.90</p>
+                            <p class="disponibilidad">● Disponible</p>
+
+                                                    <form action="carrito" method="post">
+                            <input type="hidden" name="accion" value="agregar">
+                            <input type="hidden" name="id" value="3">
+                            <input type="hidden" name="cantidad" value="1">
+
+                            <button type="submit" class="boton-producto">
+                                Añadir al carrito
+                            </button>
+                        </form>
+                        </div>
+                    </article>
+
+                    <article class="producto"
+                             data-categoria="Fundas de asientos"
+                             data-precio="159.90">
+
+                        <div class="producto-imagen">
+                            <img src="img/fundas-asientos.jpg"
+                                 alt="Fundas para asientos de auto">
+                        </div>
+
+                        <div class="producto-info">
+                            <span class="producto-categoria">Fundas de asientos</span>
+                            <h3>Fundas universales para asientos</h3>
+                            <p class="descripcion">Diseño negro para interiores</p>
+                            <p class="precio">S/ 159.90</p>
+                            <p class="disponibilidad">● Disponible</p>
+
+                            <form action="carrito" method="post">
+                            <input type="hidden" name="accion" value="agregar">
+                            <input type="hidden" name="id" value="4">
+                            <input type="hidden" name="cantidad" value="1">
+
+                            <button type="submit" class="boton-producto">
+                                Añadir al carrito
+                            </button>
+                        </form>
+                        </div>
+                    </article>
+
+                    <article class="producto"
+                             data-categoria="Llantas"
+                             data-precio="299.90">
+
+                        <div class="producto-imagen">
+                            <img src="img/llanta.jpg"
+                                 alt="Llanta para automóvil">
+                        </div>
+
+                        <div class="producto-info">
+                            <span class="producto-categoria">Llantas</span>
+                            <h3>Llanta para automóvil</h3>
+                            <p class="descripcion">Consulta las medidas disponibles</p>
+                            <p class="precio">S/ 299.90</p>
+                            <p class="disponibilidad">● Disponible</p>
+
+                            <form action="carrito" method="post">
+                            <input type="hidden" name="accion" value="agregar">
+                            <input type="hidden" name="id" value="5">
+                            <input type="hidden" name="cantidad" value="1">
+
+                            <button type="submit" class="boton-producto">
+                                Añadir al carrito
+                            </button>
+                        </form>
+                        </div>
+                    </article>
+
+                    <article class="producto"
+                             data-categoria="Mantenimiento"
+                             data-precio="49.90">
+
+                        <div class="producto-imagen">
+                            <img src="img/aceite.jpg"
+                                 alt="Producto de mantenimiento automotriz">
+                        </div>
+
+                        <div class="producto-info">
+                            <span class="producto-categoria">Mantenimiento</span>
+                            <h3>Producto de mantenimiento</h3>
+                            <p class="descripcion">Consulta la presentación disponible</p>
+                            <p class="precio">S/ 49.90</p>
+                            <p class="disponibilidad">● Disponible</p>
+
+                            <form action="carrito" method="post">
+                            <input type="hidden" name="accion" value="agregar">
+                            <input type="hidden" name="id" value="6">
+                            <input type="hidden" name="cantidad" value="1">
+
+                            <button type="submit" class="boton-producto">
+                                Añadir al carrito
+                            </button>
+                        </form>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <p id="sin-resultados" class="sin-resultados" hidden>
+                No se encontraron productos con esos criterios.
+            </p>
+
+        </section>
+
+        <!-- BENEFICIOS -->
+        <section class="beneficios">
+            <div class="contenedor beneficios-grid">
+
+                <div>
+                    <span>✓</span>
+                    <h3>Atención personalizada</h3>
+                    <p>Te ayudamos a encontrar lo que necesitas.</p>
+                </div>
+
+                <div>
+                    <span>⌂</span>
+                    <h3>Accesorios para tu auto</h3>
+                    <p>Opciones para distintas necesidades.</p>
+                </div>
+
+                <div>
+                    <span>♡</span>
+                    <h3>Compra con confianza</h3>
+                    <p>Consulta sobre productos y disponibilidad.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer id="contacto">
+
+        <div class="contenedor pie-grid">
+
+            <div>
+                <a href="#inicio" class="logo logo-pie">
+                    AUTOMUNDO <span>SAC</span>
+                </a>
+                <p>Accesorios automotrices para tu día a día.</p>
+            </div>
+
+            <div>
+                <h3>Atención al cliente</h3>
+                <p>Consultas sobre productos y disponibilidad.</p>
+                <p>Santiago de Surco, Lima, Perú</p>
+            </div>
+
+            <div>
+                <h3>Información</h3>
+                <a href="#categorias">Categorías</a>
+                <a href="productos">Productos</a>
+                <a href="#inicio">Volver al inicio</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Automundo SAC. Todos los derechos reservados.
+        </div>
+
+    </footer>
+
+    <!-- FUNCIONES BÁSICAS -->
+    <script>
+        
+        function filtrarProductos() {
+            const texto = document.getElementById("buscador")
+                .value.toLowerCase().trim();
+
+            const precioMaximo = Number(
+                document.getElementById("precio-maximo").value
+            );
+
+            const categoriasMarcadas = Array.from(
+                document.querySelectorAll(
+                    ".grupo-filtro:first-of-type input:checked"
+                )
+            ).map(function (checkbox) {
+                return checkbox.value;
+            });
+
+            let visibles = 0;
+
+            document.querySelectorAll(".producto").forEach(
+                function (producto) {
+                    const contenido = producto.textContent.toLowerCase();
+                    const categoria = producto.dataset.categoria;
+                    const precio = Number(producto.dataset.precio);
+
+                    const coincideTexto = contenido.includes(texto);
+                    const coincidePrecio = precio <= precioMaximo;
+                    const coincideCategoria =
+                        categoriasMarcadas.length === 0 ||
+                        categoriasMarcadas.includes(categoria);
+
+                    const mostrar = coincideTexto &&
+                        coincidePrecio && coincideCategoria;
+
+                    producto.hidden = !mostrar;
+
+                    if (mostrar) {
+                        visibles++;
+                    }
+                }
+            );
+
+            document.getElementById("sin-resultados").hidden =
+                visibles > 0;
+        }
+
+        function buscarProductos() {
+            filtrarProductos();
+        }
+
+        function actualizarPrecio() {
+            document.getElementById("valor-precio").textContent =
+                document.getElementById("precio-maximo").value;
+
+            filtrarProductos();
+        }
+
+        function filtrarChecks() {
+            filtrarProductos();
+        }
+
+        function filtrarCategoria(categoria) {
+            document.querySelectorAll(
+                ".grupo-filtro:first-of-type input"
+            ).forEach(function (checkbox) {
+                checkbox.checked = checkbox.value === categoria;
+            });
+
+            filtrarProductos();
+        }
+
+        function mostrarTodos() {
+            document.getElementById("buscador").value = "";
+
+            document.querySelectorAll(
+                ".grupo-filtro input[type='checkbox']"
+            ).forEach(function (checkbox) {
+                checkbox.checked = false;
+            });
+
+            document.getElementById("precio-maximo").value = 1000;
+
+            actualizarPrecio();
+        }
+
+        function limpiarFiltros() {
+            mostrarTodos();
+        }
+    
+        function actualizarContadorCarrito() {
+            fetch("carrito?accion=contador")
+                .then(response => response.text())
+                .then(cantidad => {
+                    document.getElementById("cantidad-carrito").textContent = cantidad;
+                })
+                .catch(error => {
+                    console.error("Error al actualizar el carrito:", error);
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            actualizarContadorCarrito();
+        });
+
+    </script>
+
+</body>
+</html>
